@@ -1,0 +1,30 @@
+{
+	"flavor": "mocha",
+	"enabled": true,
+	"style": "tmux",
+	"cwdStyle": "short",
+	"left": ["mode", "cwd", "git", "gitDiff"],
+	"right": ["status", "state", "model", "tokens", "lastTokens", "cost", "time"],
+	"timeFormat": "HH:mm",
+	"moduleSpacing": 0,
+	"autoReload": true,
+	"colors": {
+		"mode": "mauve",
+		"cwd": "blue",
+		"git": "green",
+		"gitDiff": "green",
+		"status": "peach",
+		"state": "pink",
+		"model": "mauve",
+		"tokens": "green",
+		"lastTokens": "blue",
+		"cost": "yellow",
+		"time": "peach",
+		"thinking": "pink"
+	},
+	"aliases": {
+		"claude-sonnet-4-5": "sonnet",
+		"gemini-2.5-pro": "gemini",
+		"gpt-5.5": "gpt-5.5"
+	}
+}

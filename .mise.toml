@@ -1,0 +1,26 @@
+[tools]
+node = "26"
+
+[tasks.install]
+description = "Install npm dependencies"
+run = "npm install"
+
+[tasks.fmt]
+description = "Format files with Prettier"
+run = "npm run format"
+
+[tasks.lint]
+description = "Run ESLint"
+run = "npm run lint"
+
+[tasks.test]
+description = "Run Vitest"
+run = "npm test"
+
+[tasks.check]
+description = "Run all local checks"
+run = "npm run check"
+
+[tasks.pack]
+description = "Dry-run npm package contents"
+run = "npm pack --dry-run"
