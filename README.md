@@ -126,6 +126,10 @@ Example:
 	"aliases": {
 		"claude-sonnet-4-5": "sonnet",
 		"gemini-2.5-pro": "gemini"
+	},
+	"statusItems": {
+		"include": [],
+		"exclude": []
 	}
 }
 ```
@@ -135,6 +139,46 @@ With `autoReload: true`, config edits are picked up automatically. You can also 
 ```txt
 /catppuccin-footer reload
 ```
+
+To see every command and configurable feature inside Pi:
+
+```txt
+/catppuccin-footer help
+```
+
+For a top-level interactive config menu:
+
+```txt
+/catppuccin-footer edit
+```
+
+You can also turn sections on/off from Pi without editing JSON:
+
+```txt
+/catppuccin-footer section                          # open an interactive section picker
+/catppuccin-footer sections edit                    # same interactive picker
+/catppuccin-footer sections                         # show enabled/disabled sections
+/catppuccin-footer section off status               # hide plugin/extension status items
+/catppuccin-footer section on status right           # show status items on the right
+/catppuccin-footer section toggle thinking left      # toggle thinking level on the left
+/catppuccin-footer section off lastTokens --global   # write to the global config
+```
+
+Inline section changes are written to `.pi/catppuccin-footer.json` by default, or to the global config with `--global`.
+
+You can also filter individual plugin/extension status items without hiding the whole `status` section:
+
+```txt
+/catppuccin-footer status                         # interactive status item picker
+/catppuccin-footer status list                    # show current include/exclude filters
+/catppuccin-footer status hide browser            # hide a status item by key or text
+/catppuccin-footer status show browser            # unhide it
+/catppuccin-footer status only memctx             # allow-list just matching status items
+/catppuccin-footer status include 'browser*'      # add an allow-list pattern
+/catppuccin-footer status reset                   # clear all status filters
+```
+
+Status patterns match the item key, text, or `key:text`, case-insensitively. `*` wildcards are supported. Exclude rules always win over include rules. Empty `include` means “show all non-excluded status items”; non-empty `include` means allow-list mode.
 
 ## Sections
 
@@ -146,7 +190,7 @@ Use these names in `left` and `right` arrays:
 | `cwd`        | Current working directory                 |
 | `git`        | Current git branch                        |
 | `gitDiff`    | Git dirty counts (`+`, `~`, `-`)          |
-| `status`     | Pi extension status messages              |
+| `status`     | Pi plugin/extension status items          |
 | `state`      | Pi activity state: idle/thinking/tools    |
 | `model`      | Active model, with optional aliases       |
 | `tokens`     | Total session input/output tokens         |
@@ -190,6 +234,17 @@ text
 /catppuccin-footer on           # enable
 /catppuccin-footer off          # disable
 /catppuccin-footer reload       # reload config
+/catppuccin-footer edit         # top-level interactive config menu
+/catppuccin-footer help         # list all commands and configurable features
+/catppuccin-footer sections     # show enabled/disabled sections
+/catppuccin-footer section      # interactive section picker
+/catppuccin-footer sections edit [--global]
+/catppuccin-footer section on <section> [left|right] [--global]
+/catppuccin-footer section off <section> [--global]
+/catppuccin-footer section toggle <section> [left|right] [--global]
+/catppuccin-footer status      # interactive status item picker
+/catppuccin-footer status list
+/catppuccin-footer status hide|show|only|include|exclude|reset [pattern] [--global]
 /catppuccin-footer init --global         # write default global config
 /catppuccin-footer init --global --force # overwrite default global config
 /catppuccin-footer init                  # write default project config
