@@ -33,10 +33,10 @@ It is inspired by `tmux-catppuccin` modules and a lualine-style Neovim setup: ro
   - time
   - thinking level
 
-## Install from GitHub
+## Install from npm
 
 ```bash
-pi install git:github.com/djensenius/pi-catppuccin-footer
+pi install npm:pi-catppuccin-footer
 ```
 
 Then reload Pi:
@@ -273,37 +273,6 @@ mise run check
 ```
 
 The test suite uses Vitest.
-
-## Publishing
-
-To publish to GitHub:
-
-```bash
-git init
-git add .
-git commit -m "Initial pi-catppuccin-footer package"
-git branch -M main
-git remote add origin git@github.com:djensenius/pi-catppuccin-footer.git
-git push -u origin main
-```
-
-Users can then install with:
-
-```bash
-pi install git:github.com/djensenius/pi-catppuccin-footer
-```
-
-To publish to npm:
-
-```bash
-npm publish
-```
-
-Users can then install with:
-
-```bash
-pi install npm:pi-catppuccin-footer
-```
 
 ## Security
 
